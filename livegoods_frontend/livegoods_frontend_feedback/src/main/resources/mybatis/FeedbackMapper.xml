@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tz.feedback.mapper.FeedbackMapper">
+    <resultMap id="feedbackMap" type="Feedback">
+        <id column="id" property="id"></id>
+        <result column="comment" property="comment"></result>
+        <result column="star" property="star"></result>
+        <result column="username" property="username"></result>
+        <result column="house_id" property="houseId"></result>
+        <result column="order_id" property="orderId"></result>
+    </resultMap>
+    <select id="selectByHouseId" resultMap="feedbackMap">
+        select
+        id,
+        comment,
+        star,
+        username,
+        house_id,
+        order_id
+        from
+        lg_feedback
+        where
+        house_id=#{param1}
+        limit ${param2},#{param3}
+    </select>
+
+    <select id="selectCount" resultType="int">
+        select count(*) from lg_feedback where house_id=#{param1}
+    </select>
+    <insert id="insertFeedback">
+        insert into lg_feedback(comment,star,username,house_id,order_id) values(#{comment},#{star},#{username},#{houseId},#{orderId})
+    </insert>
+
+</mapper>

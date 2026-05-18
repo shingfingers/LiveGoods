@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tz.order.mapper.OrderMapper">
+    <insert id="insertOrder">
+        insert into lg_order values(#{id},#{userPhone},#{houseId}
+        ,#{houseTitle},#{houseType},#{price},#{rentType},#{commentState},#{img})
+    </insert>
+
+    <resultMap id="orderMap" type="Order">
+        <id column="id" property="id"></id>
+        <result column="user_phone" property="userPhone"></result>
+        <result column="house_id" property="houseId"></result>
+        <result column="house_title" property="houseTitle"></result>
+        <result column="house_type" property="houseType"></result>
+        <result column="price" property="price"></result>
+        <result column="rent_type" property="rentType"></result>
+        <result column="comment_state" property="commentState"></result>
+        <result column="img" property="img"></result>
+    </resultMap>
+
+
+    <select id="selectOrderByPhone" resultMap="orderMap">
+        select
+        id,
+        user_phone,
+        house_id,
+        house_title,
+        house_type,
+        price,
+        rent_type,
+        comment_state,
+        img
+        from
+        lg_order
+        where
+        user_phone=#{param1}
+    </select>
+
+    <select id="selectOrderById" resultMap="orderMap">
+        select
+        id,
+        user_phone,
+        house_id,
+        house_title,
+        house_type,
+        price,
+        rent_type,
+        comment_state,
+        img
+        from
+        lg_order
+        where
+        id=#{param1}
+    </select>
+
+    <update id="updateStateById">
+        update lg_order set comment_state=#{param2} where id=#{param1}
+    </update>
+
+</mapper>

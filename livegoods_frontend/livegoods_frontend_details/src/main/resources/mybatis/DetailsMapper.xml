@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tz.details.mapper.DetailsMapper">
+    <resultMap id="houseMap" type="House">
+        <id column="id" property="id"></id>
+        <result column="title" property="title"></result>
+        <result column="rent_type" property="rentType"></result>
+        <result column="price" property="price"></result>
+        <result column="house_type" property="houseType"></result>
+        <result column="info" property="info"></result>
+        <result column="imgs" property="imgs"></result>
+        <result column="city" property="city"></result>
+        <result column="buy_time" property="buyTime"></result>
+        <result column="buy" property="buy"></result>
+    </resultMap>
+
+
+    <select id="selectById" resultMap="houseMap">
+        select
+        id,
+        title,
+        rent_type,
+        price,
+        house_type,
+        info,
+        imgs,
+        city,
+        buy_time,
+        buy
+        from
+        lg_house
+        where
+        id=#{param1}
+    </select>
+</mapper>
