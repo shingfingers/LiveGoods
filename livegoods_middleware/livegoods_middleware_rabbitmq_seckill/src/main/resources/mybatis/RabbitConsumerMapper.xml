@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tz.rabbit.seckill.mapper.RabbitConsumerMapper">
+    <select id="selectBuyById" resultType="java.lang.Boolean">
+        select buy from lg_house where id=#{param1}
+    </select>
+    <update id="updateBuyById">
+        update lg_house set buy=1 where id=#{param1}
+    </update>
+</mapper>
