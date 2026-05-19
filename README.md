@@ -182,7 +182,5 @@ text
            ├── /feedback     → frontend-feedback (8085)
            └── /seckill      → frontend-seckill (8087)
 服务间通过 Dubbo RPC 进行远程调用，Nacos 作为注册中心统一管理服务实例。
+<img width="1293" height="870" alt="4b98973c945366c583a525451b103689" src="https://github.com/user-attachments/assets/5dda36f2-e259-4ac5-af0c-3e7c0245637d" />
 
-text
-
----
